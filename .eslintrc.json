@@ -1,0 +1,35 @@
+{
+	"env": {
+		"node": true,
+		"es2022": true,
+		"browser": true
+	},
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"extends": [
+		"plugin:astro/recommended"
+	],
+	"overrides": [
+		{
+			"files": ["*.astro"],
+			"parser": "astro-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"extraFileExtensions": [".astro"]
+			}
+		},
+		{
+			"files": ["*.ts"],
+			"parser": "@typescript-eslint/parser",
+			"plugins": [
+				"@cadencejs/eslint-plugin"
+			],
+			"extends": [
+				"plugin:@cadencejs/eslint-plugin/recommended",
+				"plugin:prettier/recommended"
+			]
+		}
+	]
+}
