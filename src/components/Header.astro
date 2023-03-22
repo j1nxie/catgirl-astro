@@ -4,26 +4,16 @@ import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">
-			Twitter
-		</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">
-			GitHub
-		</HeaderLink>
-	</nav>
+	<p>
+		<HeaderLink href="/">home</HeaderLink> |
+		<HeaderLink href="/blog">blog</HeaderLink> |
+		<HeaderLink href="/categories">categories</HeaderLink> |
+		<HeaderLink href="/tags">tags</HeaderLink>
+		<br />
+		<HeaderLink href="/projects">projects</HeaderLink> |
+		<HeaderLink href="https://linktr.ee/ryliexd">socials</HeaderLink>
+	</p>
+	<p>
+		<big>{SITE_TITLE}</big>
+	</p>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>

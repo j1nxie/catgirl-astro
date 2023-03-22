@@ -1,7 +1,16 @@
 ---
 const today = new Date();
+const { pathname } = Astro.props;
 ---
 
-<footer>
-	&copy; 2022-{today.getFullYear()} j1nxie
-</footer>
+{
+	pathname === "/" ? (
+		<footer>&copy; 2022-{today.getFullYear()} j1nxie</footer>
+	) : (
+		<footer>
+			art by <a href="https://twitter.com/felutiahime">@felutiahime</a>
+			<br />
+			&copy; 2022-{today.getFullYear()} j1nxie
+		</footer>
+	)
+}

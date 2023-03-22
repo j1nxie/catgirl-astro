@@ -7,50 +7,45 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const title = `${Astro.url.pathname.replace("/", "")} | ${SITE_TITLE}`;
+const years = new Set();
+posts.map((post) => years.add(post.data.pubDate.getFullYear() as number));
+const yearArray = [...years].sort((a, b) => (b as number) - (a as number));
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li :global(time) {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
+		<BaseHead title={title} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>
-									{post.data.title}
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
+		<div id="main-wrapper">
+			<div id="wrapper">
+				<div id="sidebar">
+					<Header />
+					<Footer />
+				</div>
+				<section id="main">
+					<div class="content">
+						<h1>blog</h1>
+						{yearArray.map((year) =>
+							<div class="year">{year}</div>
+							<ul>
+							{
+								posts.filter((post) => post.data.pubDate.getFullYear() as number === year).map((post) => (
+									<li>
+										<a href=`/blog/${post.slug}/`>{post.data.title.trim()}</a>
+										<FormattedDate date={post.data.pubDate}></FormattedDate>
+									</li>
+								))
+							}
+							</ul>
+						)}
+					</div>
+				</section>
+			</div>
+		</div>
 	</body>
 </html>
