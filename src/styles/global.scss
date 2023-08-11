@@ -12,7 +12,7 @@ body {
 	inset: 0;
 	overflow: auto;
 	padding: 10px;
-	postion: absolute;
+	position: absolute;
 }
 
 .emoji {
@@ -42,7 +42,7 @@ body {
 }
 
 #sidebar {
-	background: linear-gradient(rgb(0 0 0 / 85%), rgb(0 0 0 / 85%)), url("/assets/img/suisei.png");
+	background: linear-gradient(rgb(0 0 0 / 85%), rgb(0 0 0 / 85%)), url("/suisei.png");
 	background-position: bottom;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -94,7 +94,9 @@ blockquote {
 	padding: 0em 10px;
 }
 
-table, th, td {
+table,
+th,
+td {
 	border: 1px solid;
 	border-collapse: collapse;
 }
@@ -104,7 +106,9 @@ td {
 }
 
 @media all and (max-width: 1165px) {
-	#main, #content {
+
+	#main,
+	#content {
 		width: auto;
 	}
 
