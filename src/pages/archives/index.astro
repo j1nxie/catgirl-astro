@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("archives")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const title = `${Astro.url.pathname.replace("/", "")} | ${SITE_TITLE}`;
@@ -29,7 +29,7 @@ const yearArray = [...years].sort((a, b) => (b as number) - (a as number));
 				</div>
 				<section id="main">
 					<div class="content">
-						<h1>blog</h1>
+						<h1>archives</h1>
 						{yearArray.map((year) =>
 							<div class="year">{year}</div>
 							<ul>

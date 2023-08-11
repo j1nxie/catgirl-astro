@@ -4,23 +4,23 @@ import BlogPost from "../../layouts/BlogPost.astro";
 import BlogFormattedDate from "../../components/BlogFormattedDate.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+    const posts = await getCollection("archives");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"archives">;
 
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
 <BlogPost {...post.data}>
-	<div class="title">
-		<h1>{post.data.title}</h1>
-		<BlogFormattedDate date={post.data.pubDate} />
-		<hr />
-	</div>
-	<Content />
+    <div class="title">
+        <h1>{post.data.title}</h1>
+        <BlogFormattedDate date={post.data.pubDate} />
+        <hr />
+    </div>
+    <Content />
 </BlogPost>

@@ -9,30 +9,30 @@ const pagePathname = Astro.url.pathname;
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <main>
-      <h1>j1nxie | Rylie | Lumine</h1>
-      <p id="bio">
-        catgirl developer on the Internet • hoshiyomi ☄ • i like anime,
-        programming and video games
-      </p>
-      <ul>
-        <li><a href="https://linktr.ee/ryliexd">socials</a></li>
-        <li><a href="/blog">blog</a></li>
-        <li><a href="/projects">projects</a></li>
-      </ul>
-      <img src="/suiseistupid.png" />
-    </main>
-    <div id="space"></div>
-    <p id="quote-text">
-      "I want to do what I can for the people who need me. That way, I might
-      remain in the memories of that person, right?"
-    </p>
-    <p id="quote-name">— Chisato Nishikigi</p>
-    <br />
-    <Footer pathname={pagePathname} />
-  </body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <main>
+            <h1>j1nxie | Rylie | Lumine</h1>
+            <p id="bio">
+                catgirl developer on the Internet • hoshiyomi ☄ • i like anime,
+                programming and video games
+            </p>
+            <ul>
+                <li><a href="https://linktr.ee/ryliexd">socials</a></li>
+                <li><a href="/archives">blog</a></li>
+                <li><a href="/projects">projects</a></li>
+            </ul>
+            <img src="/suiseistupid.png" />
+        </main>
+        <div id="space"></div>
+        <p id="quote-text">
+            "I want to do what I can for the people who need me. That way, I
+            might remain in the memories of that person, right?"
+        </p>
+        <p id="quote-name">— Chisato Nishikigi</p>
+        <br />
+        <Footer pathname={pagePathname} />
+    </body>
 </html>

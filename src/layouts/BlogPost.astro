@@ -4,27 +4,27 @@ import BaseHead from "../components/BaseHead.astro";
 import Sidebar from "../components/Sidebar.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"archives">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, pubDate, updatedDate, heroImage } = Astro.props;
 const pagePathname = Astro.url.pathname;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+    <head>
+        <BaseHead title={title} description="" />
+    </head>
 
-	<body>
-		<div id="main-wrapper">
-			<div id="wrapper">
-				<Sidebar />
-				<section id="main">
-					<div class="content">
-						<slot />
-					</div>
-				</section>
-			</div>
-		</div>
-	</body>
+    <body>
+        <div id="main-wrapper">
+            <div id="wrapper">
+                <Sidebar />
+                <section id="main">
+                    <div class="content">
+                        <slot />
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
 </html>
